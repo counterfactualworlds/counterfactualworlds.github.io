@@ -12,56 +12,50 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fafafa;
         }
 
-        .main-content {
-            background: white;
-            max-width: 1000px;
+        .container {
+            max-width: 900px;
             margin: 0 auto;
-            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+            padding: 0;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
             text-align: center;
+            padding: 60px 40px 40px 40px;
+            background: white;
         }
 
         h1 {
-            font-size: 2.8em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            line-height: 1.2;
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.3;
         }
 
         .venue {
-            font-size: 1.1em;
+            font-size: 1.05em;
+            color: #666;
             margin-bottom: 25px;
-            opacity: 0.95;
-            font-weight: 500;
         }
 
         .authors {
-            font-size: 1.15em;
+            font-size: 1.05em;
             margin-bottom: 12px;
-            font-weight: 400;
-        }
-
-        .authors strong {
-            font-weight: 600;
+            color: #444;
         }
 
         .affiliation {
-            font-size: 1em;
+            font-size: 0.95em;
+            color: #666;
             margin-bottom: 30px;
-            opacity: 0.9;
             line-height: 1.6;
         }
 
@@ -70,45 +64,41 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e5e5e5;
         }
 
         .links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 28px;
-            background: rgba(255,255,255,0.25);
-            backdrop-filter: blur(10px);
+            display: inline-block;
+            padding: 10px 24px;
+            background: #2563eb;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid rgba(255,255,255,0.3);
-            font-size: 1.05em;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s;
+            font-size: 0.95em;
         }
 
         .links a:hover {
-            background: rgba(255,255,255,0.35);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #1d4ed8;
         }
 
-        .container {
-            padding: 50px 40px;
+        .content {
+            padding: 40px;
         }
 
         .teaser-section {
-            margin: 0 0 50px 0;
-            text-align: center;
+            margin-bottom: 50px;
         }
 
         .teaser-box {
             background: #f8f9fa;
-            padding: 30px;
-            border-radius: 12px;
-            border: 2px dashed #cbd5e0;
-            min-height: 300px;
+            padding: 40px;
+            border-radius: 8px;
+            border: 2px dashed #d1d5db;
+            text-align: center;
+            min-height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -119,159 +109,131 @@
         .teaser-box img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 4px;
         }
 
         .placeholder-text {
-            color: #718096;
-            font-size: 1.1em;
+            color: #9ca3af;
+            font-size: 1em;
             font-style: italic;
         }
 
-        .teaser-caption {
+        .figure-caption {
             margin-top: 15px;
-            font-size: 1em;
-            color: #4a5568;
+            font-size: 0.95em;
+            color: #666;
             line-height: 1.6;
             text-align: left;
-            font-style: italic;
-        }
-
-        .abstract {
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            padding: 40px;
-            border-radius: 12px;
-            margin: 40px 0;
-            border-left: 5px solid #667eea;
-        }
-
-        .abstract h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-
-        .abstract p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        section {
-            margin: 60px 0;
-        }
-
-        h2 {
-            font-size: 2.2em;
-            margin-bottom: 25px;
-            color: #2d3748;
-            font-weight: 700;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 1.6em;
-            margin: 35px 0 20px 0;
-            color: #667eea;
-            font-weight: 600;
         }
 
         p {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        strong {
-            color: #2d3748;
-            font-weight: 600;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid #f59e0b;
-            margin: 30px 0;
-        }
-
-        .highlight-box strong {
-            display: block;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-            color: #92400e;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 12px;
+            margin-bottom: 18px;
             font-size: 1.05em;
             line-height: 1.7;
         }
 
-        li strong {
-            color: #667eea;
+        section {
+            margin: 50px 0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .highlight-box {
+            background: #fef3c7;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 15px 0 20px 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            line-height: 1.7;
         }
 
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .pillar-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 30px;
-            border-radius: 12px;
-            border-top: 4px solid #667eea;
-            transition: all 0.3s;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 3px solid #2563eb;
         }
 
         .pillar-card h4 {
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+            color: #1a1a1a;
             font-weight: 600;
         }
 
         .pillar-card p {
-            font-size: 1.05em;
-            margin-bottom: 15px;
-            line-height: 1.7;
+            font-size: 1em;
+            margin-bottom: 12px;
+        }
+
+        .pillar-card p:last-child {
+            margin-bottom: 0;
         }
 
         .citation-box {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 25px;
-            border-radius: 12px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
             overflow-x: auto;
             font-family: 'Courier New', monospace;
-            font-size: 0.95em;
+            font-size: 0.9em;
             line-height: 1.6;
+            border: 1px solid #e5e5e5;
         }
 
         footer {
-            background: #2d3748;
-            color: #e2e8f0;
-            padding: 40px;
+            background: #f8f9fa;
+            padding: 30px 40px;
             text-align: center;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 50px;
         }
 
         footer p {
-            margin-bottom: 10px;
-            font-size: 1em;
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+        }
+
+        footer p:last-child {
+            margin-bottom: 0;
         }
 
         @media (max-width: 768px) {
@@ -280,25 +242,29 @@
             }
 
             header {
-                padding: 40px 20px;
+                padding: 40px 20px 30px 20px;
             }
 
-            .container {
+            .content {
                 padding: 30px 20px;
             }
 
             h2 {
-                font-size: 1.8em;
+                font-size: 1.5em;
             }
 
             .pillars-grid {
                 grid-template-columns: 1fr;
             }
+
+            .teaser-box {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="main-content">
+    <div class="container">
         <header>
             <h1>World Models Must Live in Parallel Worlds</h1>
             <div class="venue">NeurIPS 2025 Workshop: LAW 2025</div>
@@ -306,55 +272,56 @@
                 <strong>Sahithya Ravi*</strong>, <strong>Aditya Chinchure*</strong>, Pushkar Shukla, Vered Shwartz, Leonid Sigal
             </div>
             <div class="affiliation">
-                <sup>1</sup>The University of British Columbia &nbsp;|&nbsp; <sup>2</sup>Vector Institute of AI &nbsp;|&nbsp; <sup>3</sup>Toyota Technological Institute at Chicago<br>
+                <sup>1</sup>The University of British Columbia, <sup>2</sup>Vector Institute of AI, <sup>3</sup>Toyota Technological Institute at Chicago<br>
                 *Equal contribution
             </div>
             <div class="links">
-                <a href="https://openreview.net/pdf?id=sj9Nyke43S" target="_blank">
-                    <span>📄</span> Paper
-                </a>
+                <a href="https://openreview.net/pdf?id=sj9Nyke43S" target="_blank">📄 Paper</a>
             </div>
         </header>
 
-        <div class="container">
+        <div class="content">
             <div class="teaser-section">
                 <div class="teaser-box">
-                    <img src="assets/robot_teaser.png" alt="Search and rescue robot scenario" onerror="this.style.display='none'">
-                    <!-- <div class="placeholder-text">
-                        [ Add Figure 1: Robot in collapsed building image here ]
-                    </div> -->
+                    <img src="assets/images/teaser.png" alt="Search and rescue robot scenario" onerror="this.style.display='none'">
+                    <div class="placeholder-text">
+                        [ Add robot figure here: assets/images/teaser.png ]
+                    </div>
                 </div>
-                <div class="teaser-caption">
-                    <strong>Figure 1:</strong> A search-and-rescue robot in a collapsed building: Should it move the precariously balanced slab? Current world models may predict trajectory (1), but counterfactual simulation (CfS) enables evaluating counterfactual trajectories (2, 3, 4) that are crucial for safety.
+                <div class="figure-caption">
+                    A search-and-rescue robot in a collapsed building: Should it move the precariously balanced slab? Current world models may predict trajectory (1), but counterfactual simulation (CfS) enables evaluating counterfactual trajectories (2, 3, 4) that are crucial for safety.
                 </div>
             </div>
 
-            <div class="abstract">
-                <h2>Abstract</h2>
-                <p>
-                    World models learn spatio-temporal representations of a world, enabling them to predict future states, and support interaction, navigation, and simulation capabilities. For generative models to become effective agents in the physical world, they must develop and use world models.
-                </p>
-                <p>
-                    <strong>We posit that world models must be capable of counterfactual simulation</strong> – the ability to reason about "what if" scenarios. By simulating alternative realities, world models will be more capable, safe and creative when faced with novel, out-of-distribution scenarios. Furthermore, they can transcend mere pattern matching to achieve a true causal understanding of the world, a capability central to human intelligence, and a prerequisite for the next generation of AI agents.
-                </p>
-            </div>
+            <p>
+                Real-world environments present agents with novel, out-of-distribution scenarios that require more than pattern matching to navigate safely. World models learn spatio-temporal representations that enable prediction, interaction, and simulation. Yet most current world models focus on predicting the most likely future, missing the ability to reason about alternative outcomes.
+            </p>
+
+            <p>
+                We introduce <strong>SPIKE</strong>, an inference-time framework that quantifies Bayesian Surprise as the belief update triggered by new visual evidence in the video stream. By identifying moments where new observations conflict with prior expectations, SPIKE naturally discovers the most salient and informative frames. Since zero-shot Video-LLM beliefs are often suboptimal, we develop <strong>SPIKE-RL</strong>, which leverages group relative policy optimization (GRPO) to refine belief hypotheses based on caption quality as a reward signal.
+            </p>
+
+            <p>
+                <strong>We posit that world models must be capable of counterfactual simulation</strong> – the ability to reason about "what if" scenarios. By simulating alternative realities, world models will be more capable, safe, and creative when faced with novel situations. Furthermore, they can transcend mere pattern matching to achieve true causal understanding of the world, a capability central to human intelligence.
+            </p>
 
             <section id="problem">
                 <h2>The Case-Based Generalization Crisis</h2>
+                
                 <p>
                     Generative AI has demonstrated remarkable capabilities in creating text, images and videos that mimic human output. However, for these models to transition from digital content creators to effective agents in the physical world, they require a deeper understanding of how the world works.
                 </p>
+
                 <p>
-                    Current efforts to build world models focus on predicting future states from past observations, typically by scaling models and exposing them to millions of examples. This approach, while powerful, creates a fundamental generalization gap. The resulting models excel at interpolating within their training data, but falter when asked to extrapolate to novel scenarios.
+                    Current efforts to build world models focus on predicting future states from past observations, typically by scaling models and exposing them to millions of examples. This approach, while powerful, creates a fundamental generalization gap. The resulting models excel at interpolating within their training data, but falter when asked to extrapolate to novel scenarios. They engage in case-based generalization, effectively imitating the most similar training instances rather than abstracting the underlying physical or causal principles.
                 </p>
                 
                 <div class="highlight-box">
-                    <strong>The Problem: Case-Based Generalization</strong>
-                    Models engage in case-based generalization, effectively imitating the most similar training instances rather than abstracting the underlying physical or causal principles. This brittleness manifests in critical failures:
+                    <p><strong>This brittleness manifests in critical failures:</strong></p>
                     <ul>
-                        <li><strong>Lack of compositionality:</strong> Struggling to combine familiar concepts in novel contexts (e.g., "a hummingbird flying over a city")</li>
-                        <li><strong>Mistaking correlation for causation:</strong> Producing hallucinations such as people walking backwards</li>
-                        <li><strong>Black box reasoning:</strong> Unable to explain their reasoning, unsuitable for safety-critical applications</li>
+                        <li>Models often lack compositionality, struggling to combine familiar concepts in novel contexts. For example, Veo 2 struggles to generate "a hummingbird flying over a city" because it associates the bird with natural habitats, rather than abstracting hummingbird and flying as transferable concepts.</li>
+                        <li>They mistake correlation for causation, producing hallucinations such as people walking backwards in Genie 2.</li>
+                        <li>They remain opaque black boxes, unable to explain their reasoning and unsuitable for safety-critical applications.</li>
                     </ul>
                 </div>
 
@@ -365,37 +332,46 @@
 
             <section id="counterfactual">
                 <h2>Counterfactual Simulation</h2>
-                
-                <h3>What is Counterfactual Simulation?</h3>
+
+                <h3>Definitions</h3>
                 <p>
-                    A <strong>counterfactual</strong> is a hypothetical "what-if" that changes a specific aspect of the world and examines how the outcome would differ. Within Pearl's Ladder of Causation, counterfactuals sit at the highest level—beyond association (observing correlations) and intervention (predicting the effects of actions).
+                    A <strong>counterfactual</strong> is a hypothetical "what-if" that changes a specific aspect of the world and examines how the outcome would differ, allowing us to reason about alternative outcomes. Within Pearl's Ladder of Causation, counterfactuals sit at the highest level. Beyond association (observing correlations) and intervention (predicting the effects of actions), they answer questions of the form, "What would have happened if I had acted differently?"
                 </p>
 
                 <p>
-                    A <strong>counterfactual simulation (CfS)</strong> is an alternative sequence of events generated by a world model that explores what could have happened had a specific event been different. Given a factual trajectory ω<sub>fact</sub> = (e<sub>0</sub>, e<sub>1</sub>, ..., e<sub>T</sub>), a counterfactual trajectory ω<sub>cf</sub> is created by:
+                    A <strong>counterfactual simulation (CfS)</strong> is an alternative sequence of events generated by a world model that explores what could have happened had a specific event been different. To formalize, we define an event (e<sub>t</sub>) as a single unit combining a state and an action at time t. A trajectory (ω) is a sequence of these events over time.
+                </p>
+
+                <p>
+                    Consider a factual trajectory (ω<sub>fact</sub>) that represents the most likely sequence of events. A counterfactual trajectory (ω<sub>cf</sub>) is a hypothetical alternative created by performing an intervention at a specific step k, replacing the factual event with a different, hypothetical event. This trajectory is constructed by following a three-part process:
                 </p>
 
                 <ul>
-                    <li><strong>Preservation:</strong> For all steps before intervention (t < k), counterfactual events remain identical to factual ones</li>
-                    <li><strong>Intervention:</strong> At step k, replace the factual event with a hypothetical alternative</li>
-                    <li><strong>Simulation:</strong> For subsequent steps (t > k), generate new events using the world model based on the intervention</li>
+                    <li>For all steps leading up to the intervention (t < k), the counterfactual events are identical to the factual ones</li>
+                    <li>At the intervention point (t = k), the factual event is replaced with a hypothetical alternative</li>
+                    <li>For all steps following the intervention (t > k), subsequent events are generated by the world model, simulating the consequences of the counterfactual change</li>
                 </ul>
 
                 <p>
-                    This process generates a new trajectory that is identical to the factual one up to the intervention point but diverges afterward due to the change at step k, creating parallel worlds that can be explored and reasoned about.
+                    This process generates a new trajectory that is identical to the factual one up to the intervention point but diverges afterward due to the change at step k, creating parallel worlds that enable reasoning about alternative outcomes.
                 </p>
             </section>
 
             <section id="position">
-                <h2>Our Position: Scaling Alone is Not Enough</h2>
+                <h2>Alternative Views and Our Position</h2>
+
                 <p>
-                    A common prevailing view is that case-based generalization will be overcome naturally from scaling up generative models with more data and compute, or by allocating greater compute at inference to improve reasoning abilities. <strong>We believe this is not a viable path forward</strong> for the following reasons:
+                    A common prevailing view is that case-based generalization will be overcome naturally from scaling up generative models with more data and compute. Others advocate for test-time scaling: allocating greater compute at inference to improve reasoning abilities and generalization.
+                </p>
+
+                <p>
+                    <strong>We believe that scaling data, models or test-time compute alone is not a viable path forward to robust world modeling</strong>, for the following reasons:
                 </p>
 
                 <ul>
-                    <li><strong>Finite high-quality data:</strong> Human data is finite, pushing reliance on synthetic data that risks model collapse as models train on their own outputs</li>
-                    <li><strong>Data inefficiency:</strong> Large-scale models train on trillions of tokens, far exceeding a child's linguistic exposure, and still lack robust world understanding</li>
-                    <li><strong>Test-time compute limitations:</strong> A model that doesn't grasp intuitive physics will just explore a larger tree of physically implausible outcomes, no matter how much compute is allocated</li>
+                    <li>High quality human data is finite, pushing reliance on synthetic data that risks model collapse as models train on their own outputs. The energy and water demands of large data centers raise sustainability concerns and question the long-term viability of continued scaling.</li>
+                    <li>Large-scale models are data inefficient. LLMs train on trillions of tokens, far exceeding a child's linguistic exposure and still lack robust world understanding.</li>
+                    <li>Allocating more compute at test-time is not a cure-all for a flawed underlying model. A model that doesn't grasp intuitive physics, like object permanence, will just explore a larger tree of physically implausible outcomes, no matter how much compute is thrown at it.</li>
                 </ul>
             </section>
 
@@ -409,50 +385,39 @@
                 <div class="pillars-grid">
                     <div class="pillar-card">
                         <h4>Pillar 1: The Reasoning Process</h4>
-                        <p><strong>Activation:</strong> Identify which events are causally significant and warrant counterfactual exploration</p>
-                        <p><strong>Inference:</strong> Perform targeted interventions to simulate consequences, balancing computational cost with decision importance</p>
-                        <p><strong>Adaptation:</strong> Use CfS outcomes to inform appropriate actions or preventative measures</p>
+                        <p><strong>Activation:</strong> World models must decide when to simulate counterfactuals by identifying causally significant "activation events" based on their impact on future trajectories.</p>
+                        <p><strong>Inference:</strong> When an activation event is identified, perform targeted interventions to simulate consequences, balancing decision importance and uncertainty against computational cost.</p>
+                        <p><strong>Adaptation:</strong> Use CfS outcomes to inform appropriate actions or preventative measures through reasoning methods.</p>
                     </div>
 
                     <div class="pillar-card">
                         <h4>Pillar 2: Model Architecture Design</h4>
-                        <p><strong>Deep Compositionality:</strong> Encode the world as a system of disentangled concepts, objects, and physical rules that can combine flexibly</p>
-                        <p><strong>Hypothesis Canvas:</strong> External memory workspace to instantiate and maintain multiple parallel trajectories for counterfactual exploration</p>
+                        <p><strong>Deep Compositionality:</strong> Encode the world as a system of disentangled concepts, objects, and physical rules—where elemental building blocks can combine to form larger concepts with transferable properties.</p>
+                        <p><strong>Hypothesis Canvas:</strong> Use an external memory workspace to instantiate and maintain multiple parallel trajectories, creating distinct subgraphs for each CfS trajectory.</p>
                     </div>
 
                     <div class="pillar-card">
                         <h4>Pillar 3: Training and Evaluation</h4>
-                        <p><strong>Training:</strong> Use interventional objectives that encourage capturing causal relationships rather than mere correlations</p>
-                        <p><strong>Evaluation:</strong> Verify adherence to logical and physical constraints rather than reconstruction accuracy</p>
+                        <p><strong>Training:</strong> Prioritize interventional prediction objectives that force world models to capture causal relationships rather than mere correlations.</p>
+                        <p><strong>Evaluation:</strong> Verify adherence to logical and physical constraints (e.g., conservation laws, plausible dynamics) rather than reconstruction accuracy, given the scarcity of ground truth for counterfactuals.</p>
                     </div>
                 </div>
             </section>
 
             <section id="implications">
-                <h2>Why This Matters</h2>
+                <h2>Discussion</h2>
+                
                 <p>
-                    Developing world models with counterfactual simulation (CfS) will enable robustness in critical domains like robotics and healthcare, where reasoning about novel situations is key to safe and effective operation. World models equipped with CfS capabilities can:
+                    Developing world models with counterfactual simulation (CfS) will enable robustness in critical domains like robotics and healthcare, where reasoning about novel situations is key to safe and effective operation. However, there are technical and safety challenges that need to be met.
                 </p>
-                <ul>
-                    <li><strong>Generalize to out-of-distribution scenarios</strong> by reasoning from first principles rather than pattern matching</li>
-                    <li><strong>Reason causally</strong> about the consequences of actions before taking them</li>
-                    <li><strong>Operate safely</strong> in high-stakes environments by considering alternative outcomes</li>
-                    <li><strong>Provide interpretable explanations</strong> through explicit counterfactual trajectories</li>
-                    <li><strong>Enable creative problem-solving</strong> by exploring novel combinations of familiar concepts</li>
-                </ul>
-            </section>
 
-            <section id="discussion">
-                <h2>Key Research Questions</h2>
-                <p>
-                    Building world models with counterfactual simulation capabilities requires addressing several fundamental challenges:
-                </p>
+                <h3>Key Research Questions</h3>
                 <ul>
-                    <li>How can we build efficient ensembles of context-specific causal models rather than a single all-encompassing model?</li>
-                    <li>How can models learn to identify causally significant "activation events" without already having causal understanding?</li>
-                    <li>How do we manage the exponential growth of possible counterfactuals through contextual plausibility and prioritization?</li>
-                    <li>How do we evaluate CfS capability through downstream benchmarks and interpretability measures?</li>
-                    <li>What are the ethical implications of models that can simulate both beneficial and harmful outcomes?</li>
+                    <li><strong>How can we build these models?</strong> Building a single, all-encompassing causal model is computationally infeasible. A more practical path may involve an ensemble of smaller, context-specific models with specialized memory modules.</li>
+                    <li><strong>How would a model initially learn what constitutes a causally significant "activation event"?</strong> The model can leverage statistical uncertainty as a diagnostic signal and proactively seek out surprising scenarios where prediction errors are highest.</li>
+                    <li><strong>How would you manage the exponential growth of possible counterfactuals?</strong> Develop mechanisms to generate counterfactuals from most plausible to least plausible, with a dynamically determined counterfactual budget that prioritizes contextually plausible, unexpected, and causally significant scenarios.</li>
+                    <li><strong>How do we measure success?</strong> Indirect evaluation through downstream benchmarks and carefully designed simulations with novel constraints can assess CfS capability.</li>
+                    <li><strong>What are the ethical implications?</strong> Models that can simulate "what if" scenarios need safeguards to prevent acting on dangerous simulations, with transparent reasoning in human-understandable formats.</li>
                 </ul>
             </section>
 
@@ -469,8 +434,8 @@
         </div>
 
         <footer>
-            <p><strong>NeurIPS 2025 Workshop:</strong> LAW 2025 - Bridging Language, Agent, and World Models for Reasoning and Planning</p>
-            <p>© 2025 Counterfactual Worlds Team</p>
+            <p><strong>NeurIPS 2025 Workshop: LAW 2025</strong></p>
+            <p>Bridging Language, Agent, and World Models for Reasoning and Planning</p>
         </footer>
     </div>
 </body>
