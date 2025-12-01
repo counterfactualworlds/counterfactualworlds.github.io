@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Models Must Live in Parallel Worlds</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .main-content {
+            background: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.2;
+        }
+
+        .venue {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .authors {
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .authors strong {
+            font-weight: 600;
+        }
+
+        .affiliation {
+            font-size: 1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: 1.05em;
+        }
+
+        .links a:hover {
+            background: rgba(255,255,255,0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            padding: 50px 40px;
+        }
+
+        .teaser-section {
+            margin: 0 0 50px 0;
+            text-align: center;
+        }
+
+        .teaser-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px dashed #cbd5e0;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .teaser-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .placeholder-text {
+            color: #718096;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .teaser-caption {
+            margin-top: 15px;
+            font-size: 1em;
+            color: #4a5568;
+            line-height: 1.6;
+            text-align: left;
+            font-style: italic;
+        }
+
+        .abstract {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        .abstract h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .abstract p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        section {
+            margin: 60px 0;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            color: #2d3748;
+            font-weight: 700;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin: 35px 0 20px 0;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #f59e0b;
+            margin: 30px 0;
+        }
+
+        .highlight-box strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #92400e;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        li strong {
+            color: #667eea;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .pillar-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .pillar-card h4 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .pillar-card p {
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .citation-box {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 40px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <h1>World Models Must Live in Parallel Worlds</h1>
+            <div class="venue">NeurIPS 2025 Workshop: LAW 2025</div>
+            <div class="authors">
+                <strong>Sahithya Ravi*</strong>, <strong>Aditya Chinchure*</strong>, Pushkar Shukla, Vered Shwartz, Leonid Sigal
+            </div>
+            <div class="affiliation">
+                <sup>1</sup>The University of British Columbia &nbsp;|&nbsp; <sup>2</sup>Vector Institute of AI &nbsp;|&nbsp; <sup>3</sup>Toyota Technological Institute at Chicago<br>
+                *Equal contribution
+            </div>
+            <div class="links">
+                <a href="https://openreview.net/pdf?id=sj9Nyke43S" target="_blank">
+                    <span>📄</span> Paper
+                </a>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="teaser-section">
+                <div class="teaser-box">
+                    <img src="assets/robot_teaser.png" alt="Search and rescue robot scenario" onerror="this.style.display='none'">
+                    <!-- <div class="placeholder-text">
+                        [ Add Figure 1: Robot in collapsed building image here ]
+                    </div> -->
+                </div>
+                <div class="teaser-caption">
+                    <strong>Figure 1:</strong> A search-and-rescue robot in a collapsed building: Should it move the precariously balanced slab? Current world models may predict trajectory (1), but counterfactual simulation (CfS) enables evaluating counterfactual trajectories (2, 3, 4) that are crucial for safety.
+                </div>
+            </div>
+
+            <div class="abstract">
+                <h2>Abstract</h2>
+                <p>
+                    World models learn spatio-temporal representations of a world, enabling them to predict future states, and support interaction, navigation, and simulation capabilities. For generative models to become effective agents in the physical world, they must develop and use world models.
+                </p>
+                <p>
+                    <strong>We posit that world models must be capable of counterfactual simulation</strong> – the ability to reason about "what if" scenarios. By simulating alternative realities, world models will be more capable, safe and creative when faced with novel, out-of-distribution scenarios. Furthermore, they can transcend mere pattern matching to achieve a true causal understanding of the world, a capability central to human intelligence, and a prerequisite for the next generation of AI agents.
+                </p>
+            </div>
+
+            <section id="problem">
+                <h2>The Case-Based Generalization Crisis</h2>
+                <p>
+                    Generative AI has demonstrated remarkable capabilities in creating text, images and videos that mimic human output. However, for these models to transition from digital content creators to effective agents in the physical world, they require a deeper understanding of how the world works.
+                </p>
+                <p>
+                    Current efforts to build world models focus on predicting future states from past observations, typically by scaling models and exposing them to millions of examples. This approach, while powerful, creates a fundamental generalization gap. The resulting models excel at interpolating within their training data, but falter when asked to extrapolate to novel scenarios.
+                </p>
+                
+                <div class="highlight-box">
+                    <strong>The Problem: Case-Based Generalization</strong>
+                    Models engage in case-based generalization, effectively imitating the most similar training instances rather than abstracting the underlying physical or causal principles. This brittleness manifests in critical failures:
+                    <ul>
+                        <li><strong>Lack of compositionality:</strong> Struggling to combine familiar concepts in novel contexts (e.g., "a hummingbird flying over a city")</li>
+                        <li><strong>Mistaking correlation for causation:</strong> Producing hallucinations such as people walking backwards</li>
+                        <li><strong>Black box reasoning:</strong> Unable to explain their reasoning, unsuitable for safety-critical applications</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Human cognition provides a useful point of reference. When humans encounter a novel situation, we hypothesize alternatives: if a human drives into a school zone, we imagine that children may run into the road, or that a car door may suddenly open. Such counterfactual simulations allow us to substitute, recombine, and adapt knowledge flexibly, enabling robustness in out-of-distribution settings.
+                </p>
+            </section>
+
+            <section id="counterfactual">
+                <h2>Counterfactual Simulation</h2>
+                
+                <h3>What is Counterfactual Simulation?</h3>
+                <p>
+                    A <strong>counterfactual</strong> is a hypothetical "what-if" that changes a specific aspect of the world and examines how the outcome would differ. Within Pearl's Ladder of Causation, counterfactuals sit at the highest level—beyond association (observing correlations) and intervention (predicting the effects of actions).
+                </p>
+
+                <p>
+                    A <strong>counterfactual simulation (CfS)</strong> is an alternative sequence of events generated by a world model that explores what could have happened had a specific event been different. Given a factual trajectory ω<sub>fact</sub> = (e<sub>0</sub>, e<sub>1</sub>, ..., e<sub>T</sub>), a counterfactual trajectory ω<sub>cf</sub> is created by:
+                </p>
+
+                <ul>
+                    <li><strong>Preservation:</strong> For all steps before intervention (t < k), counterfactual events remain identical to factual ones</li>
+                    <li><strong>Intervention:</strong> At step k, replace the factual event with a hypothetical alternative</li>
+                    <li><strong>Simulation:</strong> For subsequent steps (t > k), generate new events using the world model based on the intervention</li>
+                </ul>
+
+                <p>
+                    This process generates a new trajectory that is identical to the factual one up to the intervention point but diverges afterward due to the change at step k, creating parallel worlds that can be explored and reasoned about.
+                </p>
+            </section>
+
+            <section id="position">
+                <h2>Our Position: Scaling Alone is Not Enough</h2>
+                <p>
+                    A common prevailing view is that case-based generalization will be overcome naturally from scaling up generative models with more data and compute, or by allocating greater compute at inference to improve reasoning abilities. <strong>We believe this is not a viable path forward</strong> for the following reasons:
+                </p>
+
+                <ul>
+                    <li><strong>Finite high-quality data:</strong> Human data is finite, pushing reliance on synthetic data that risks model collapse as models train on their own outputs</li>
+                    <li><strong>Data inefficiency:</strong> Large-scale models train on trillions of tokens, far exceeding a child's linguistic exposure, and still lack robust world understanding</li>
+                    <li><strong>Test-time compute limitations:</strong> A model that doesn't grasp intuitive physics will just explore a larger tree of physically implausible outcomes, no matter how much compute is allocated</li>
+                </ul>
+            </section>
+
+            <section id="path-forward">
+                <h2>The Path Forward: Three Pillars</h2>
+                
+                <p>
+                    Effective counterfactual simulation requires a strong underlying causal framework for the world the model is trained on, and a structured process to trigger, generate, store, and use counterfactual simulations. We propose a three-pillar approach:
+                </p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <h4>Pillar 1: The Reasoning Process</h4>
+                        <p><strong>Activation:</strong> Identify which events are causally significant and warrant counterfactual exploration</p>
+                        <p><strong>Inference:</strong> Perform targeted interventions to simulate consequences, balancing computational cost with decision importance</p>
+                        <p><strong>Adaptation:</strong> Use CfS outcomes to inform appropriate actions or preventative measures</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <h4>Pillar 2: Model Architecture Design</h4>
+                        <p><strong>Deep Compositionality:</strong> Encode the world as a system of disentangled concepts, objects, and physical rules that can combine flexibly</p>
+                        <p><strong>Hypothesis Canvas:</strong> External memory workspace to instantiate and maintain multiple parallel trajectories for counterfactual exploration</p>
+                    </div>
+
+                    <div class="pillar-card">
+                        <h4>Pillar 3: Training and Evaluation</h4>
+                        <p><strong>Training:</strong> Use interventional objectives that encourage capturing causal relationships rather than mere correlations</p>
+                        <p><strong>Evaluation:</strong> Verify adherence to logical and physical constraints rather than reconstruction accuracy</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="implications">
+                <h2>Why This Matters</h2>
+                <p>
+                    Developing world models with counterfactual simulation (CfS) will enable robustness in critical domains like robotics and healthcare, where reasoning about novel situations is key to safe and effective operation. World models equipped with CfS capabilities can:
+                </p>
+                <ul>
+                    <li><strong>Generalize to out-of-distribution scenarios</strong> by reasoning from first principles rather than pattern matching</li>
+                    <li><strong>Reason causally</strong> about the consequences of actions before taking them</li>
+                    <li><strong>Operate safely</strong> in high-stakes environments by considering alternative outcomes</li>
+                    <li><strong>Provide interpretable explanations</strong> through explicit counterfactual trajectories</li>
+                    <li><strong>Enable creative problem-solving</strong> by exploring novel combinations of familiar concepts</li>
+                </ul>
+            </section>
+
+            <section id="discussion">
+                <h2>Key Research Questions</h2>
+                <p>
+                    Building world models with counterfactual simulation capabilities requires addressing several fundamental challenges:
+                </p>
+                <ul>
+                    <li>How can we build efficient ensembles of context-specific causal models rather than a single all-encompassing model?</li>
+                    <li>How can models learn to identify causally significant "activation events" without already having causal understanding?</li>
+                    <li>How do we manage the exponential growth of possible counterfactuals through contextual plausibility and prioritization?</li>
+                    <li>How do we evaluate CfS capability through downstream benchmarks and interpretability measures?</li>
+                    <li>What are the ethical implications of models that can simulate both beneficial and harmful outcomes?</li>
+                </ul>
+            </section>
+
+            <section id="citation">
+                <h2>Citation</h2>
+                <div class="citation-box">@article{ravi2025counterfactual,
+  title={Position: World Models must live in Parallel Worlds},
+  author={Ravi, Sahithya and Chinchure, Aditya and Shukla, Pushkar 
+          and Shwartz, Vered and Sigal, Leonid},
+  journal={NeurIPS 2025 Workshop: LAW 2025},
+  year={2025}
+}</div>
+            </section>
+        </div>
+
+        <footer>
+            <p><strong>NeurIPS 2025 Workshop:</strong> LAW 2025 - Bridging Language, Agent, and World Models for Reasoning and Planning</p>
+            <p>© 2025 Counterfactual Worlds Team</p>
+        </footer>
+    </div>
+</body>
+</html>
